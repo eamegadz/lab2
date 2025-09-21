@@ -20,7 +20,7 @@ void print_with_commas(float num) {
     int len = 0;
     while (buffer[len] != '\0') len++;
 
-    
+    int commas = (len - 1) / 3;
     int first_group = len % 3;
     if (first_group == 0) first_group = 3;
 
@@ -61,27 +61,32 @@ int main(void) {
     if (d23 < min) min = d23;
 
     if (fabsf(d12 - d13) < 1e-5 && fabsf(d13 - d23) < 1e-5) {
+        printf("\n");
         printf("All points are equal distance: ");
         print_with_commas(d12);
-        printf("\n");
+        
         return 0;
     }
 
     if (fabsf(d12 - min) < 1e-5) {
+        printf("\n");
         printf("P1<->P2: ");
         print_with_commas(d12);
-        printf("\n");
+        
     }
     if (fabsf(d13 - min) < 1e-5) {
+        printf("\n");
         printf("P1<->P3: ");
         print_with_commas(d13);
-        printf("\n");
+        
     }
     if (fabsf(d23 - min) < 1e-5) {
+        printf("\n");
         printf("P2<->P3: ");
         print_with_commas(d23);
-        printf("\n");
+        
     }
 
     return 0;
 }
+
